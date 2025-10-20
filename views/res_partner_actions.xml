@@ -1,0 +1,8 @@
+<odoo>
+    <record id="send_whatsapp_wizard_action" model="ir.actions.act_window">
+        <field name="name">Send WhatsApp Message</field>
+        <field name="res_model">send.whatsapp.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

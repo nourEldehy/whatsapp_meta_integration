@@ -5,13 +5,14 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
-                 <button name="send_whatsapp_test_template"
-                    type="object"
+                 <button name="%(whatsapp_meta_integration.send_whatsapp_wizard_action)d"
+                    type="action"
                     class="oe_stat_button"
-                    icon="fa-whatsapp">
+                    icon="fa-whatsapp"
+                    context="{'default_partner_id': active_id}">
                     <div class="o_field_widget o_stat_info">
-                        <span class="o_stat_text">Send Test</span>
-                        <span class="o_stat_text">Template</span>
+                        <span class="o_stat_text">Send</span>
+                        <span class="o_stat_text">WhatsApp</span>
                     </div>
                 </button>
             </xpath>
