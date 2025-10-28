@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_view_form_whatsapp_button" model="ir.ui.view">
+        <field name="name">crm.lead.form.whatsapp.button</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <header>
+                <button name="%(whatsapp_meta_integration.send_whatsapp_wizard_action)d"
+                    type="action"
+                    string="Send WhatsApp"
+                    class="btn-secondary"
+                    context="{'default_partner_id': partner_id}"
+                    attrs="{'invisible': [('partner_id', '=', False)]}"/>
+            </header>
+        </field>
+    </record>
+</odoo>

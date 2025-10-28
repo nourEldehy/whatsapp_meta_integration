@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form_whatsapp" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.whatsapp</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" data-string="WhatsApp Meta Integration" string="WhatsApp Meta Integration" data-key="whatsapp_meta_integration">
+                    <h2>WhatsApp (Meta) API Configuration</h2>
+                    <div class="row mt16 o_settings_container">
+                        
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="whatsapp_meta_access_token"/>
+                                <div class="text-muted">Your permanent Meta API Access Token.</div>
+                                <div class="content-group">
+                                    <field name="whatsapp_meta_access_token" password="True"/>
+                                </div>
+                                
+                                <label for="whatsapp_meta_phone_number_id" class="mt16"/>
+                                <div class="text-muted">The ID of the registered phone number.</div>
+                                <div class="content-group">
+                                    <field name="whatsapp_meta_phone_number_id"/>
+                                </div>
+
+                                <label for="whatsapp_meta_verify_token" class="mt16"/>
+                                <div class="text-muted">Create and enter a secret token for webhook verification.</div>
+                                <div class="content-group">
+                                    <field name="whatsapp_meta_verify_token"/>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label for="whatsapp_meta_waba_id"/>
+                                <div class="text-muted">The ID of your WhatsApp Business Account (for template syncing).</div>
+                                <div class="content-group">
+                                    <field name="whatsapp_meta_waba_id"/>
+                                </div>
+                                <div class="mt16">
+                                    <button name="action_sync_templates" string="Sync Templates from Meta" type="object" class="btn-primary" icon="fa-refresh"/>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
