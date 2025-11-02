@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- whatsapp_meta_integration/wizard/reply_whatsapp_wizard_views.xml -->
 <odoo>
 
-  <!-- Action to open the wizard -->
   <record id="action_whatsapp_reply_wizard" model="ir.actions.act_window">
     <field name="name">Reply via WhatsApp</field>
     <field name="res_model">whatsapp.reply.wizard</field>
     <field name="view_mode">form</field>
+    <field name="view_id" ref="view_whatsapp_reply_wizard_form"/>
     <field name="target">new</field>
     <field name="context">{}</field>
   </record>
 
-  <!-- Wizard form -->
   <record id="view_whatsapp_reply_wizard_form" model="ir.ui.view">
     <field name="name">whatsapp.reply.wizard.form</field>
     <field name="model">whatsapp.reply.wizard</field>
@@ -33,3 +32,4 @@
   </record>
 
 </odoo>
+

@@ -4,3 +4,4 @@ access_send_whatsapp_wizard,send.whatsapp.wizard access,model_send_whatsapp_wiza
 access_whatsapp_variable_input,whatsapp.variable.input access,model_whatsapp_variable_input,base.group_user,1,1,1,1
 access_whatsapp_reply_wizard_user,access_whatsapp_reply_wizard_user,model_whatsapp_reply_wizard,base.group_user,1,1,1,0
 access_send_whatsapp_wizard_user,access_send_whatsapp_wizard_user,model_send_whatsapp_wizard,base.group_user,1,1,1,0
+access_send_whatsapp_wizard,access_send_whatsapp_wizard,model_send_whatsapp_wizard,base.group_user,1,1,1,1
