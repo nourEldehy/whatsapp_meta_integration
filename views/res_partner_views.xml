@@ -1,0 +1,21 @@
+<odoo>
+    <record id="res_partner_view_form_whatsapp_button" model="ir.ui.view">
+        <field name="name">res.partner.form.whatsapp.button</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                 <button name="%(whatsapp_meta_integration.send_whatsapp_wizard_action)d"
+                    type="action"
+                    class="oe_stat_button"
+                    icon="fa-whatsapp"
+                    context="{'default_partner_id': active_id}">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_text">Send</span>
+                        <span class="o_stat_text">WhatsApp</span>
+                    </div>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

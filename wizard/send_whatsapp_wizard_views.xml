@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- Action: open the Send WhatsApp Template wizard -->
+  <record id="action_send_whatsapp_wizard" model="ir.actions.act_window">
+    <field name="name">Send WhatsApp Template</field>
+    <field name="res_model">send.whatsapp.wizard</field> <!-- matches your view's model -->
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+    <field name="context">{}</field>
+  </record>
+
+  <!-- Wizard form view (your existing record) -->
+  <record id="send_whatsapp_wizard_view_form" model="ir.ui.view">
+    <field name="name">send.whatsapp.wizard.form</field>
+    <field name="model">send.whatsapp.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Send WhatsApp Message">
+        <group>
+          <field name="partner_id"/>
+          <field name="template_id" options="{'no_create': True, 'no_open': True}"/>
+        </group>
+
+        <group attrs="{'invisible': [('has_header_variable', '=', False)]}">
+          <label for="header_variable_value" string="Header Variable"/>
+          <div>
+            <field name="header_variable_value" nolabel="1" placeholder="Enter Header Value (e.g., Customer Name or Image URL)"/>
+            <field name="header_variable_description" class="text-muted" nolabel="1"/>
+            <field name="has_header_variable" invisible="1"/>
+            <field name="header_type" invisible="1"/>
+          </div>
+        </group>
+
+        <field name="variable_ids" nolabel="1" attrs="{'invisible': [('variable_ids', '=', [])]}">
+          <tree editable="bottom">
+            <field name="sequence" invisible="1"/>
+            <field name="name" readonly="1" string="Body Variable"/>
+            <field name="value"/>
+          </tree>
+        </field>
+
+        <footer>
+          <button name="action_send_message" string="Send" type="object" class="btn-primary"/>
+          <button string="Cancel" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+</odoo>

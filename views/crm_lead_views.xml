@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="crm_lead_view_form_whatsapp_buttons_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form.whatsapp.buttons.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//form/sheet" position="inside">
+                <field name="reply_window_open" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//header" position="inside">
+                <button name="%(whatsapp_meta_integration.send_whatsapp_wizard_action)d"
+                        type="action"
+                        string="Send Template"
+                        class="btn-secondary"
+                        context="{'default_partner_id': partner_id, 'active_id': active_id}"
+                        attrs="{'disabled': [('partner_id', '=', False)]}"/>
+
+                <button name="%(whatsapp_meta_integration.action_whatsapp_reply_wizard)d"
+                        string="Reply via WhatsApp"
+                        type="action"
+                        class="btn-primary"
+                        context="{'default_lead_id': active_id}"
+                        attrs="{'disabled': [('reply_window_open', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

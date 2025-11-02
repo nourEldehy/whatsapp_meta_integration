@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- Action to open the wizard -->
+  <record id="action_whatsapp_reply_wizard" model="ir.actions.act_window">
+    <field name="name">Reply via WhatsApp</field>
+    <field name="res_model">whatsapp.reply.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+    <field name="context">{}</field>
+  </record>
+
+  <!-- Wizard form -->
+  <record id="view_whatsapp_reply_wizard_form" model="ir.ui.view">
+    <field name="name">whatsapp.reply.wizard.form</field>
+    <field name="model">whatsapp.reply.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Reply via WhatsApp">
+        <group>
+          <field name="lead_id" invisible="1"/>
+          <field name="partner_id" readonly="1"/>
+          <field name="to_number"/>
+          <field name="window_ok" readonly="1"/>
+          <field name="message" widget="text" attrs="{'required': [('window_ok', '=', True)]}"/>
+        </group>
+        <footer>
+          <button string="Send" name="action_send" type="object" class="oe_highlight"
+                  attrs="{'invisible': [('window_ok', '=', False)]}"/>
+          <button string="Close" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+</odoo>
